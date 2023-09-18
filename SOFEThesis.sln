@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOFEThesis", "SOFEThesis\SOFEThesis.csproj", "{EA3A78FE-8C3C-4AFB-889D-86975E9B5FB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA3A78FE-8C3C-4AFB-889D-86975E9B5FB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA3A78FE-8C3C-4AFB-889D-86975E9B5FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA3A78FE-8C3C-4AFB-889D-86975E9B5FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA3A78FE-8C3C-4AFB-889D-86975E9B5FB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E229BAEA-7093-4415-8913-3D55B4F5A4CC}
+	EndGlobalSection
+EndGlobal
