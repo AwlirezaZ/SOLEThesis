@@ -15,7 +15,7 @@ namespace SOFEThesis.Context.Mapping
             builder.Property(a => a.Order);
             builder.Property(a => a.FacePictureId);
 
-            builder.HasOne(a => a.FacePicture).WithOne("FacePictureId");
+            builder.HasOne(a => a.FacePicture).WithOne().HasForeignKey<FaceCondition>(a => a.FacePictureId);
 
         }
     }

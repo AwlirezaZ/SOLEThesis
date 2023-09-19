@@ -16,9 +16,9 @@ namespace SOFEThesis.Context.Mapping
             builder.Property(a => a.FirstFacePictureId);
             builder.Property(a => a.SecondFacePictureId);
 
-            builder.HasOne(a => a.Picture).WithOne().HasForeignKey("PictureId");
-            builder.HasOne(a => a.FirstFacePicture).WithOne().HasForeignKey("FirstFacePictureId");
-            builder.HasOne(a => a.SecondFacePicture).WithOne().HasForeignKey("SecondFacePictureId");
+            builder.HasOne(a => a.Picture).WithOne().HasForeignKey<CompoundCondition>(a => a.PictureId);
+            builder.HasOne(a => a.FirstFacePicture).WithOne().HasForeignKey<CompoundCondition>(a => a.FirstFacePictureId);
+            builder.HasOne(a => a.SecondFacePicture).WithOne().HasForeignKey<CompoundCondition>(a => a.SecondFacePictureId);
 
 
         }

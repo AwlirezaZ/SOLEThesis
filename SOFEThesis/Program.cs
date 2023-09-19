@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<SoleThesisContext>(options => options.UseSqlServer(
+builder.Services.AddDbContext<SofeThesisContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("ConnStr")
 ));
 var app = builder.Build();

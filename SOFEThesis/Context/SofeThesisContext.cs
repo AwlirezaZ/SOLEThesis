@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using SOFEThesis.Domain;
 using SOFEThesis.Domain.Conditions;
 
 namespace SOFEThesis.Context
 {
-    public class SoleThesisContext : DbContext
+    public class SofeThesisContext : DbContext
     {
         public DbSet<Picture> Pictures { get; set; }
         public DbSet<FacePicture> FacePictures { get; set; }
@@ -15,9 +16,15 @@ namespace SOFEThesis.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SoleThesisContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SofeThesisContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
+        public SofeThesisContext(DbContextOptions<SofeThesisContext> options) : base(options)
+        {
+            //this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+
+        }
+
     }
-    
+
 }
