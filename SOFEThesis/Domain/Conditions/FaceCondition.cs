@@ -5,5 +5,6 @@
         public long Id { get; set; }
         public FacePicture FacePicture { get; set; }
         public long Order { get; set; }
+        public long FacePictureId { get; set; }
     }
 }

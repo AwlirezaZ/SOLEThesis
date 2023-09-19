@@ -10,10 +10,15 @@ namespace SOFEThesis.Context.Mapping
         {
             builder.HasKey(a => a.Id);
             builder.Property(a => a.Id).ValueGeneratedOnAdd();
+
             builder.Property(a => a.Order);
-            builder.HasOne(a => a.Picture);
-            builder.HasOne(a => a.FirstFacePicture);
-            builder.HasOne(a => a.SecondFacePicture);
+            builder.Property(a => a.PictureId);
+            builder.Property(a => a.FirstFacePictureId);
+            builder.Property(a => a.SecondFacePictureId);
+
+            builder.HasOne(a => a.Picture).WithOne().HasForeignKey("PictureId");
+            builder.HasOne(a => a.FirstFacePicture).WithOne().HasForeignKey("FirstFacePictureId");
+            builder.HasOne(a => a.SecondFacePicture).WithOne().HasForeignKey("SecondFacePictureId");
 
 
         }

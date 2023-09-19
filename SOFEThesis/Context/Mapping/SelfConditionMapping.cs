@@ -10,8 +10,12 @@ namespace SOFEThesis.Context.Mapping
         {
             builder.HasKey(a => a.Id);
             builder.Property(a => a.Id).ValueGeneratedOnAdd();
+
             builder.Property(a => a.Order);
-            builder.HasOne(a => a.Picture);
+            builder.Property(a => a.PictureId);
+
+            builder.HasOne(a => a.Picture).WithOne().HasForeignKey("PictureId");
+
 
         }
     }
