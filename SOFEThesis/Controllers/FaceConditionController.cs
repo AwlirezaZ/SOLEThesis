@@ -43,7 +43,7 @@ namespace SOFEThesis.Controllers
         {
             var condition = _context.FaceConditions.FirstOrDefault(a => a.Id == id);
             if (condition == null)
-                throw new SelfConditionNotFoundException();
+                throw new FaceConditionNotFoundException();
             return FaceConditionMapper.Map(condition);
         }
     }

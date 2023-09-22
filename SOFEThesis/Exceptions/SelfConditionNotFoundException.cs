@@ -6,4 +6,10 @@
         {
         }
     }
+    public class CompoundConditionNotFoundException : Exception
+    {
+        public CompoundConditionNotFoundException() : base("Compound Condition Is Not Found!")
+        {
+        }
+    }
 }

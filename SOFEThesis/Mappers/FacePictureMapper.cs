@@ -9,13 +9,14 @@ namespace SOFEThesis.Mappers
         {
             return facePictures.Select(Map).ToList();
         }
-        public static FacePictureDto Map(FacePicture picture)
+        public static FacePictureDto Map(FacePicture facePicture)
         {
+            if(facePicture == null) return new FacePictureDto();
             return new FacePictureDto()
             {
-                Id = picture.Id,
-                Name = picture.Name,
-                Source = picture.Source,
+                Id = facePicture.Id,
+                Name = facePicture.Name,
+                Source = facePicture.Source,
             };
         }
     }
