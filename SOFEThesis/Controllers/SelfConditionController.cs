@@ -39,7 +39,7 @@ namespace SOFEThesis.Controllers
         }
         [HttpGet]
         [Route("{id}")]
-        public SelfConditionDto GetBydId(long id)
+        public SelfConditionDto GetById(long id)
         {
            var condition = _context.SelfConditions.FirstOrDefault(a => a.Id == id);
            if (condition == null)
