@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using SOFEThesis.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,12 @@ builder.Services.AddDbContext<SofeThesisContext>(options => options.UseSqlServer
 ));
 var app = builder.Build();
 
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(
+                        Path.Combine(Directory.GetCurrentDirectory(), @"Images")),
+    RequestPath = new PathString("/app-images")
+});
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
