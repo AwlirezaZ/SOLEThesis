@@ -4,6 +4,7 @@ using SOFEThesis.Context;
 using SOFEThesis.Contracts.Picture;
 using SOFEThesis.Domain;
 using SOFEThesis.Exceptions;
+using SOFEThesis.Helpers;
 using SOFEThesis.Mappers;
 using System.Reflection.Metadata.Ecma335;
 
@@ -24,23 +25,8 @@ namespace SOFEThesis.Controllers
         [Route("Post")]
         public long CreatePicture([FromForm] CreatePictureDto dto)
         {
-
-            if (dto.File.Length > 0)
-            {
-                string filePath = Path.Combine(Directory.GetCurrentDirectory(), @"Images");
-                FileInfo fileInfo = new FileInfo(filePath);
-                fileInfo.IsReadOnly = false;
-                using (Stream fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    dto.File.CopyToAsync(fileStream);
-                }
-            }
-            var picture = new Picture()
-            {
-                Name = Path.GetFileNameWithoutExtension(dto.File.FileName),
-                AmbiguousSituation = dto.AmbiguousSituation,
-                Source = dto.Source,
-            };
+            FileHelper.SaveFile(dto.File);
+            var picture = new Picture(dto.Name, dto.File.FileName, dto.AmbiguousSituation);
             _context.Pictures.Add(picture);
             _context.SaveChanges();
             return picture.Id;

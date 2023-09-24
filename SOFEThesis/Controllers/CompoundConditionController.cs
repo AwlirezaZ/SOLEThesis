@@ -22,13 +22,7 @@ namespace SOFEThesis.Controllers
         [Route("Post")]
         public long Create(CreateCompoundConditionDto dto)
         {
-            var compoundCondition = new CompoundCondition()
-            {
-                PictureId = dto.PictureId,
-                FirstFacePictureId = dto.FirstFacePictureId,
-                SecondFacePictureId = dto.SecondFacePictureId,
-                Order = dto.Order,
-            };
+            var compoundCondition = new CompoundCondition(dto.PictureId, dto.FirstFacePictureId, dto.SecondFacePictureId, dto.Order);
             _context.CompoundConditions.Add(compoundCondition);
             _context.SaveChanges();
             return compoundCondition.Id;

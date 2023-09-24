@@ -10,5 +10,12 @@
         public long PictureId { get; set; }
         public long FirstFacePictureId { get; set; }
         public long SecondFacePictureId { get; set; }
+        public CompoundCondition(long pictureId, long firstFacePictureId, long secondFacePictureId, long order)
+        {
+            PictureId = pictureId;
+            FirstFacePictureId = firstFacePictureId;
+            SecondFacePictureId = secondFacePictureId;
+            Order = order;
+        }
     }
 }

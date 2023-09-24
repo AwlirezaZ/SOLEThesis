@@ -6,5 +6,10 @@
         public Picture Picture { get; set; }
         public long PictureId { get; set; }
         public long Order { get; set; }
+        public SelfCondition(long pictureId,long order)
+        {
+            PictureId = pictureId;
+            Order = order;
+        }
     }
 }

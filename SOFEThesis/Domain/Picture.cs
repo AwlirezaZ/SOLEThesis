@@ -6,5 +6,12 @@
         public string Name { get; set; }
         public string Source { get; set; }
         public string AmbiguousSituation { get; set; }
+        public Picture(string name,string source, string ambiguousSituation) 
+        { 
+            Name = name;
+            Source = source;
+            AmbiguousSituation = ambiguousSituation;
+        }
     }
+    
 }

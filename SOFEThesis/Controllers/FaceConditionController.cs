@@ -22,11 +22,7 @@ namespace SOFEThesis.Controllers
         [Route("Post")]
         public long Create(CreateFaceConditionDto dto)
         {
-            var faceCondition = new FaceCondition()
-            {
-                FacePictureId = dto.FacePictureId,
-                Order = dto.Order,
-            };
+            var faceCondition = new FaceCondition(dto.FacePictureId, dto.Order);
             _context.FaceConditions.Add(faceCondition);
             _context.SaveChanges();
             return faceCondition.Id;

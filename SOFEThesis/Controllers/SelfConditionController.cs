@@ -22,11 +22,7 @@ namespace SOFEThesis.Controllers
         [Route("Post")]
         public long Create(CreateSelfConditionDto dto)
         {
-            var selfCondition = new SelfCondition()
-            {
-                PictureId = dto.PictureId,
-                Order = dto.Order,
-            };
+            var selfCondition = new SelfCondition(dto.PictureId, dto.Order);
             _context.SelfConditions.Add(selfCondition);
             _context.SaveChanges();
             return selfCondition.Id;

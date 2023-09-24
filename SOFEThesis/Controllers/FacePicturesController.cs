@@ -3,6 +3,7 @@ using SOFEThesis.Context;
 using SOFEThesis.Contracts.FacePicture;
 using SOFEThesis.Domain;
 using SOFEThesis.Exceptions;
+using SOFEThesis.Helpers;
 using SOFEThesis.Mappers;
 
 namespace SOFEThesis.Controllers
@@ -22,11 +23,8 @@ namespace SOFEThesis.Controllers
         [Route("Post")]
         public long CreateFacePicture(CreateFacePictureDto dto)
         {
-            var facePicture = new FacePicture()
-            {
-                Name = dto.Name,
-                Source = dto.Source,
-            };
+            FileHelper.SaveFile(dto.File);
+            var facePicture = new FacePicture(dto.Name, dto.File.FileName);
             _context.FacePictures.Add(facePicture);
             _context.SaveChanges();
             return facePicture.Id;
