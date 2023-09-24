@@ -22,11 +22,11 @@ namespace SOFEThesis.Controllers
 
         [HttpPost]
         [Route("Post")]
-        public long CreatePicture(CreatePictureDto dto)
+        public long CreatePicture([FromForm] CreatePictureDto dto)
         {
             var picture = new Picture()
             {
-                Name = dto.Name,
+                Name = Path.GetFileNameWithoutExtension(dto.File.FileName),
                 AmbiguousSituation = dto.AmbiguousSituation,
                 Source = dto.Source,
             };
