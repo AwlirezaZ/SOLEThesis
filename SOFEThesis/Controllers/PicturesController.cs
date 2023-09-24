@@ -24,6 +24,17 @@ namespace SOFEThesis.Controllers
         [Route("Post")]
         public long CreatePicture([FromForm] CreatePictureDto dto)
         {
+
+            if (dto.File.Length > 0)
+            {
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(), @"Images");
+                FileInfo fileInfo = new FileInfo(filePath);
+                fileInfo.IsReadOnly = false;
+                using (Stream fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    dto.File.CopyToAsync(fileStream);
+                }
+            }
             var picture = new Picture()
             {
                 Name = Path.GetFileNameWithoutExtension(dto.File.FileName),
@@ -37,8 +48,8 @@ namespace SOFEThesis.Controllers
         [HttpGet]
         public List<PictrueDto> GetAll([FromQuery] string? name)
         {
-           var pictures = _context.Pictures.Where(a => string.IsNullOrEmpty(name) || a.Name.Contains(name)).ToList();
-           return PictureMapper.Map(pictures);   
+            var pictures = _context.Pictures.Where(a => string.IsNullOrEmpty(name) || a.Name.Contains(name)).ToList();
+            return PictureMapper.Map(pictures);
         }
         [HttpGet]
         [Route("{id}")]
