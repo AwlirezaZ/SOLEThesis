@@ -21,7 +21,7 @@ namespace SOFEThesis.Controllers
 
         [HttpPost]
         [Route("Post")]
-        public long CreateFacePicture(CreateFacePictureDto dto)
+        public long CreateFacePicture([FromForm] CreateFacePictureDto dto)
         {
             FileHelper.SaveFile(dto.File);
             var facePicture = new FacePicture(dto.Name, dto.File.FileName);
