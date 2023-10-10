@@ -15,7 +15,7 @@ namespace SOFEThesis.Mappers
             {
                 Id = condition.Id,
                 Order = condition.Order,
-                Pictrue = PictureMapper.Map(condition.Picture),
+                Picture = PictureMapper.Map(condition.Picture),
             };
         }
     }
